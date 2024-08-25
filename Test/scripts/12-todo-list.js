@@ -6,6 +6,7 @@ const todoList = [{
   dueDate: ''
 }];
 
+
 renderTodoList ();
 
 function renderTodoList () {
