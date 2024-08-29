@@ -9,63 +9,90 @@ import { Container } from '@/components/Container'
 import { Logomark } from '@/components/Logo'
 
 const plans = [
-  
   {
-    name: 'Starter',
-    featured: false,
+    name: 'Free',
+    featured: true,
     price: { Monthly: '$0', Annually: '$0' },
-    description:
-      'You’re new to investing but want to do it right. Get started for free.',
+    description: 'No credit card required.',
     button: {
-      label: 'Get started for free',
+      label: 'Start for free',
       href: '/register',
     },
     features: [
-      'Commission-free trading',
-      'Multi-layered encryption',
-      'One tip every day',
-      'Invest up to $1,500 each month',
+      'Generate Chat + beta GenAI Agents',
+      '15 Credits',
+      '3 Days trial',
+      'AI-Powered Case Finder',
+      'Data sourced from Nextatlas Engine',
+      'Powered by Gpt-4',
     ],
     logomarkClassName: 'fill-gray-300',
   },
   {
-    name: 'Investor',
+    name: 'Base',
     featured: false,
-    price: { Monthly: '$7', Annually: '$70' },
-    description:
-      'You’ve been investing for a while. Invest more and grow your wealth faster.',
+    price: { Monthly: '€99', Annually: '€83' },
+    description: {
+      monthly: 'Per user/month, Billed monthly.',
+      annually: 'Per user/month, Billed at €996 per year',
+    },
     button: {
-      label: 'Subscribe',
+      label: 'Continue with Base',
       href: '/register',
     },
     features: [
-      'Commission-free trading',
-      'Multi-layered encryption',
-      'One tip every hour',
-      'Invest up to $15,000 each month',
-      'Basic transaction anonymization',
+      '100 Credits',
+      '+ 50 Credits Bonus First Month',
+      'Generate Chat',
+      'AI-Powered Case Finder',
+      'Data sourced from Nextatlas Engine',
+      'Powered by Gpt-4',
     ],
     logomarkClassName: 'fill-gray-500',
   },
   {
-    name: 'VIP',
-    featured: true,
-    price: { Monthly: '$199', Annually: '$1,990' },
-    description:
-      'You’ve got a huge amount of assets but it’s not enough. To the moon.',
+    name: 'Advanced',
+    featured: false,
+    price: { Monthly: '€149', Annually: '€125' },
+    description: {
+      monthly: 'Per user/month, Billed monthly.',
+      annually: 'Per user/month, Billed at €1500 per year',
+    },
     button: {
-      label: 'Subscribe',
+      label: 'Continue with Advanced',
       href: '/register',
     },
     features: [
-      'Commission-free trading',
-      'Multi-layered encryption',
-      'Real-time tip notifications',
-      'No investment limits',
-      'Advanced transaction anonymization',
-      'Automated tax-loss harvesting',
+      '2 GenAI Agents of your Choice',
+      '150 Credits',
+      'Generate Chat',
+      'AI-Powered Case Finder',
+      'Data sourced from Nextatlas Engine',
+      'Powered by Gpt-4',
     ],
-    logomarkClassName: 'fill-cyan-500',
+    logomarkClassName: 'fill-gray-500',
+  },
+  {
+    name: 'Pro',
+    featured: false,
+    price: { Monthly: '€199', Annually: '€167' },
+    description: {
+      monthly: 'Per user/month, Billed monthly.',
+      annually: 'Per user/month, Billed at €2000 per year',
+    },
+    button: {
+      label: 'Continue with Pro',
+      href: '/register',
+    },
+    features: [
+      '4 GenAI Agents of your Choice',
+      '200 Credits',
+      'Generate Chat',
+      'AI-Powered Case Finder',
+      'Data sourced from Nextatlas Engine',
+      'Powered by Gpt-4',
+    ],
+    logomarkClassName: 'fill-violet-500',
   },
 ]
 
@@ -100,6 +127,14 @@ function Plan({
   logomarkClassName,
   featured = false,
 }) {
+  // Determine the description based on the plan name and the active period
+  const finalDescription =
+    name === 'Free'
+      ? description
+      : activePeriod === 'Monthly'
+      ? description.monthly
+      : description.annually;
+
   return (
     <section
       className={clsx(
@@ -113,8 +148,8 @@ function Plan({
           featured ? 'text-white' : 'text-gray-900',
         )}
       >
-        <Logomark className={clsx('h-6 w-6 flex-none', logomarkClassName)} />
-        <span className="ml-4">{name}</span>
+        <Logomark className={clsx('h-2 w-2 flex-none', logomarkClassName)} />
+        <span className="ml-4 text-xl">{name}</span>
       </h3>
       <p
         className={clsx(
@@ -155,7 +190,7 @@ function Plan({
           featured ? 'text-gray-300' : 'text-gray-700',
         )}
       >
-        {description}
+        {finalDescription}
       </p>
       <div className="order-last mt-6">
         <ul
@@ -172,7 +207,7 @@ function Plan({
               <CheckIcon
                 className={clsx(
                   'h-6 w-6 flex-none',
-                  featured ? 'text-white' : 'text-cyan-500',
+                  featured ? 'text-white' : 'text-violet-500',
                 )}
               />
               <span className="ml-4">{feature}</span>
@@ -182,7 +217,7 @@ function Plan({
       </div>
       <Button
         href={button.href}
-        color={featured ? 'cyan' : 'gray'}
+        color={featured ? 'violet' : 'gray'}
         className="mt-6"
         aria-label={`Get started with the ${name} plan for ${price}`}
       >
@@ -191,6 +226,7 @@ function Plan({
     </section>
   )
 }
+
 
 export function Pricing() {
   let [activePeriod, setActivePeriod] = useState('Monthly')
@@ -207,11 +243,10 @@ export function Pricing() {
             id="pricing-title"
             className="text-3xl font-medium tracking-tight text-gray-900"
           >
-            Flat pricing, no management fees.
+            Find the Right Plan for your Needs.
           </h2>
-          <p className="mt-2 text-lg text-gray-600">
-            Whether you’re one person trying to get ahead or a big firm trying
-            to take over the world, we’ve got a plan for you.
+          <p className="mt-2 text-xl text-gray-600">
+          Designed for every stage of your journey. Start today, no credit card required.
           </p>
         </div>
 
@@ -240,7 +275,7 @@ export function Pricing() {
             <div
               aria-hidden="true"
               className={clsx(
-                'pointer-events-none absolute inset-0 z-10 grid grid-cols-2 overflow-hidden rounded-lg bg-cyan-500 transition-all duration-300',
+                'pointer-events-none absolute inset-0 z-10 grid grid-cols-2 overflow-hidden rounded-lg bg-violet-500 transition-all duration-300',
                 activePeriod === 'Monthly'
                   ? '[clip-path:inset(0_50%_0_0)]'
                   : '[clip-path:inset(0_0_0_calc(50%-1px))]',
@@ -261,7 +296,7 @@ export function Pricing() {
           </div>
         </div>
 
-        <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 items-start gap-x-8 gap-y-10 sm:mt-20 lg:max-w-none lg:grid-cols-3">
+        <div className="mx-auto mt-16 grid max-w-none grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
           {plans.map((plan) => (
             <Plan key={plan.name} {...plan} activePeriod={activePeriod} />
           ))}

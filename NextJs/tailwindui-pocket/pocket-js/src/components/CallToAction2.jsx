@@ -1,7 +1,7 @@
 import { CircleBackground } from '@/components/CircleBackground'
 import { Container } from '@/components/Container'
 
-export function CallToAction() {
+export function CallToAction2() {
   return (
     <section
       id="get-free-shares-today"
@@ -13,10 +13,10 @@ export function CallToAction() {
       <Container className="relative">
         <div className="mx-auto sm:text-center">
           <h2 className="text-3xl font-medium tracking-tight text-white sm:text-4xl max-w-4xl mx-auto">
-            The AI business strategist to instantly see future markets and understand consumer behavior
+          Decoding Trends with Nextatlas' AI Approach
           </h2>
           <p className="mt-4 text-lg text-gray-300 max-w-4xl mx-auto">
-            The Generate Suite offers you a full array of specialized assistants to jumpstart your team's work and provide detailed workflow planning: scouting innovation in any sector, planning multiple scenarios in one sitting, discovering the next trending ingredient or advise on brand strategy. It's like conversing with an extremely market research-savvy peer.
+          Our pioneering approach utilizes artificial intelligence and machine learning algorithms to analyze social media data, online content, and plenty of different sources, uncovering emerging trends and consumer behaviors along with business cases, service and product applications. The power of the Nextatlas engine comes from 300k+ early adopters, giving you a comprehensive and data-backed answer directly from today's trend setters.
           </p>
         </div>
       </Container>

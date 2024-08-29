@@ -122,7 +122,7 @@ export function Header() {
               )}
             </Popover>
             <Button href="/login" className="hidden lg:block">
-              sono io
+              Log in
             </Button>
           </div>
         </Container>

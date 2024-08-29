@@ -4,39 +4,39 @@ import { Container } from '@/components/Container'
 
 const features = [
   {
-    name: 'Invest any amount',
+    name: 'Generate Chat',
     description:
-      'Whether it’s $1 or $1,000,000, we can put your money to work for you.',
+      'Speak with our strategist to get advanced insights into market dynamics and consumer trends to shape your strategic decisions.',
     icon: DeviceArrowIcon,
   },
   {
-    name: 'Build a balanced portfolio',
+    name: 'Persona Generator Agent',
     description:
-      'Invest in different industries to find the most opportunities to win huge.',
+      'Quickly develop varied personas based on our consumer data and test them in every scenario you can think of, an out of the box living segmentation',
     icon: DeviceCardsIcon,
   },
   {
-    name: 'Trade in real-time',
+    name: 'Ingredient Discovery Agent',
     description:
-      'Get insider tips on big stock moves and act on them within seconds.',
+      'Discover the next big thing in food and innovate your product development or market strategy.',
     icon: DeviceClockIcon,
   },
   {
-    name: 'Profit from your network',
+    name: 'Innovation Tracker',
     description:
-      'Invite new insiders to get tips faster and beat even other Pocket users.',
+      'Track tech advancements, startups and industry innovations and receive recommendations for a competitive edge.',
     icon: DeviceListIcon,
   },
   {
-    name: 'Encrypted and anonymized',
+    name: 'Sentiment Pulse Agent',
     description:
-      'Cutting-edge security technology that even the NSA doesn’t know about keeps you hidden.',
+      'Get real-time insights on the undercurrents shaping public opinion and emotional trends and see how your audience really feels.',
     icon: DeviceLockIcon,
   },
   {
-    name: 'Portfolio tracking',
+    name: 'Subculture Agent',
     description:
-      'Watch your investments grow exponentially, leaving other investors in the dust.',
+      'Get real-time insights on the undercurrents shaping public opinion and emotional trends and see how your audience really feels.',
     icon: DeviceChartIcon,
   },
 ]
@@ -196,11 +196,10 @@ export function SecondaryFeatures() {
       <Container>
         <div className="mx-auto max-w-2xl sm:text-center">
           <h2 className="text-3xl font-medium tracking-tight text-gray-900">
-            Now is the time to build your portfolio.
+            Smart Assistants, Super Results.
           </h2>
           <p className="mt-2 text-lg text-gray-600">
-            With typical market returns, you have to start young to secure your
-            future. With Pocket, it’s never too late to build your nest egg.
+            Experience the future of efficiency with our GenAI Agents, engineered to turbocharge your workflows with precision and speed.
           </p>
         </div>
         <ul
