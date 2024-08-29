@@ -15,7 +15,7 @@ export default function Login() {
       subtitle={
         <>
           New to Generate?{' '}
-          <Link href="/#pricing" className="text-cyan-600">
+          <Link href="/#pricing" className="text-violet-600">
           Choose your Plan
           </Link>{' '}
         </>
@@ -38,7 +38,7 @@ export default function Login() {
             required
           />
         </div>
-        <Button type="submit" color="cyan" className="mt-8 w-full">
+        <Button type="submit" color="violet" className="mt-8 w-full">
           Sign in to account
         </Button>
       </form>
