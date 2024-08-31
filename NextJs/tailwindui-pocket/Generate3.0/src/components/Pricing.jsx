@@ -241,7 +241,7 @@ export function Pricing() {
         <div className="mx-auto max-w-2xl text-center">
           <h2
             id="pricing-title"
-            className="text-3xl font-medium tracking-tight text-gray-900"
+            className="text-3xl font-semibold tracking-tight text-gray-800"
           >
             Find the Right Plan for your Needs.
           </h2>

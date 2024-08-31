@@ -52,7 +52,7 @@ export function SecondaryFeatures2() {
     >
       <Container>
         <div className="mx-auto max-w-1xl sm:text-center">
-          <h2 className="text-3xl font-medium tracking-tight text-gray-900">
+          <h2 className="text-3xl font-semibold tracking-tight text-gray-800">
           Build solid strategy on industry-trusted Nextatlas data analysis.
           </h2>
           <p className="mt-2 text-lg text-gray-600">

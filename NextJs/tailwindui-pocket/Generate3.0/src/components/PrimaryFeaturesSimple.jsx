@@ -7,33 +7,46 @@ import clsx from 'clsx'
 
 import { AppScreen } from '@/components/AppScreen'
 import { Container } from '@/components/Container'
-import { BackgroundAnimation } from './BackgroundAnimation' // Importa BackgroundAnimation
+import { BackgroundAnimation } from './BackgroundAnimation'
+import Image from 'next/image';
+
+// Importa le immagini dalla cartella src/images
+import freelancerImage from '../images/freelance.jpg'
+import brandStrategistImage from '../images/brand-strategist.jpg'
+import trendResearcherImage from '../images/trend-research.jpg'
+import innovationConsultantImage from '../images/innovation-consultant.jpg'
+import insightsStrategistImage from '../images/insights-strategist.jpg'
 
 const features = [
   {
     name: 'Freelancer',
     description:
       'By analysing vast datasets of consumer conversations alongside Nextatlas`s best-in-class consumer sentiment tools, Generate Suite gives Insights Strategists a nuanced understanding of consumer motivations, informing the development of targeted and impactful marketing strategies.',
+    image: freelancerImage, // Utilizza l'immagine importata
   },
   {
     name: 'Brand Strategist',
     description:
       'By analysing vast datasets of consumer conversations alongside Nextatlas`s best-in-class consumer sentiment tools, Generate Suite gives Insights Strategists a nuanced understanding of consumer motivations, informing the development of targeted and impactful marketing strategies.',
+    image: brandStrategistImage, // Utilizza l'immagine importata
   },
   {
     name: 'Trend Researcher',
     description:
       'By analysing vast datasets of consumer conversations alongside Nextatlas`s best-in-class consumer sentiment tools, Generate Suite gives Insights Strategists a nuanced understanding of consumer motivations, informing the development of targeted and impactful marketing strategies.',
+    image: trendResearcherImage, // Utilizza l'immagine importata
   },
   {
     name: 'Innovation Consultant',
     description:
       'By analysing vast datasets of consumer conversations alongside Nextatlas`s best-in-class consumer sentiment tools, Generate Suite gives Insights Strategists a nuanced understanding of consumer motivations, informing the development of targeted and impactful marketing strategies.',
+    image: innovationConsultantImage, // Utilizza l'immagine importata
   },
   {
     name: 'Insights Strategist',
     description:
       'By analysing vast datasets of consumer conversations alongside Nextatlas`s best-in-class consumer sentiment tools, Generate Suite gives Insights Strategists a nuanced understanding of consumer motivations, informing the development of targeted and impactful marketing strategies.',
+    image: insightsStrategistImage, // Utilizza l'immagine importata
   },
 ]
 
@@ -45,37 +58,44 @@ const slideAnimation = {
   enter: {
     opacity: 1,
     x: '0%',  // Entra in vista, centrata
-    transition: { duration: 0.6, ease: 'easeInOut' },
+    transition: { duration: 0.3, ease: 'easeInOut' },
   },
   exit: {
     opacity: 0,
     x: '-100%',  // Esce dalla vista sulla sinistra
-    transition: { duration: 0.6, ease: 'easeInOut' },
+    transition: { duration: 0.3, ease: 'easeInOut' },
   },
 }
 
 function FeatureScreen({ feature }) {
   return (
-    <AppScreen className="w-full">
+    <AppScreen className="w-ful p-0">
       <motion.div
+        className="max-w-4xl mx-auto rounded-xl bg-white shadow-lg flex" 
         initial="initial"
         animate="enter"
         exit="exit"
         variants={slideAnimation}
-       className="max-w-lg mx-auto rounded-xl bg-white p-6 shadow-lg flex flex-col justify-center"
-        >
-        <AppScreen.Body>
-          <h3 className="text-2xl font-semibold text-gray-900 mb-4 text-left">
-            {feature.name}
-          </h3>
-          <p className="text-lg text-gray-700 text-left">
-            {feature.description}
-          </p>
-        </AppScreen.Body>
+        
+      >
+            <Image
+              src={feature.image} 
+              alt={feature.name}
+              width={300} // Adatta la larghezza alla sezione
+              height={300} // Adatta l'altezza alla sezione
+              style={{ borderRadius: 'inherit', marginTop: 0, marginBottom: 0, marginLeft: 0 }} // Mantiene i bordi arrotondati della card
+            />
+            <div className="flex flex-col justify-center p-8"> {/* Padding interno per il testo */}
+            <h3 className="text-2xl font-semibold text-gray-900 mb-4 text-left">
+              {feature.name}
+            </h3>
+            <p className="text-lg text-gray-700 text-left">
+              {feature.description}
+            </p>
+          </div>
       </motion.div>
-
     </AppScreen>
-  )
+  );
 }
 
 function FeaturesDesktop() {
@@ -83,7 +103,7 @@ function FeaturesDesktop() {
 
   return (
     <TabGroup
-      className="flex flex-col items-center gap-8 lg:gap-16 xl:gap-24"
+      className="flex flex-col items-center gap-8 lg:gap-8 xl:gap-24"
       selectedIndex={selectedIndex}
       onChange={setSelectedIndex}
     >
@@ -105,14 +125,14 @@ function FeaturesDesktop() {
                 style={{ borderRadius: 16 }}
               />
             )}
-            <div className="relative z-10 p-4 flex flex-col items-center">
+            <div className="relative z-10 p-4 flex items-center justify-center h-full">
               <Tab
                 className={({ selected }) =>
                   clsx(
-                    'text-center ui-not-focus-visible:outline-none', // Common classes
+                    'text-center ui-not-focus-visible:outline-none',
                     selected
-                      ? 'text-white' // Style per tab selezionato
-                      : 'text-gray-800' // Style per tab non selezionato
+                      ? 'text-white'
+                      : 'text-gray-800'
                   )
                 }
               >
@@ -121,6 +141,7 @@ function FeaturesDesktop() {
                 </h3>
               </Tab>
             </div>
+
           </div>
         ))}
       </TabList>
@@ -189,15 +210,11 @@ function FeaturesMobile() {
             ref={(ref) => ref && (slideRefs.current[featureIndex] = ref)}
             className="w-full flex-none snap-center px-4 sm:px-6"
           >
-            <div className="relative transform overflow-hidden rounded-2xl bg-gray-100 px-5 py-6">
+            <div className="relative transform overflow-hidden rounded-3xl bg-gray-100">
               <div className="relative mx-auto w-full">
                 <FeatureScreen feature={feature} />
               </div>
-              <div className="absolute inset-x-0 bottom-0 bg-gray-800/95 p-6 backdrop-blur sm:p-10">
-                <h3 className="mt-6 text-sm font-semibold text-white sm:text-lg">
-                  {feature.name}
-                </h3>
-              </div>
+        
             </div>
           </div>
         ))}
@@ -232,12 +249,12 @@ export function PrimaryFeaturesSimple() {
     <section
       id="features"
       aria-label="Supporting Professionals in Future-Ready Strategies."
-      className="relative bg-gray-100 py-10 sm:py-32 overflow-hidden" // Aggiunta la classe overflow-hidden e relative
+      className="relative bg-gray-100 py-4 sm:py-20 overflow-hidden"
     >
-      <BackgroundAnimation /> {/* Aggiunto il BackgroundAnimation qui */}
-      <Container className="relative z-10"> {/* Applicato z-10 per mantenere il contenuto sopra l'animazione */}
-        <div className="mx-auto max-w-2xl lg:mx-auto lg:max-w-3xl text-center">
-          <h2 className="text-3xl font-medium tracking-tight text-gray-800">
+      <BackgroundAnimation />
+      <Container className="relative z-10">
+        <div className="mx-auto max-w-3xl lg:max-w-4xl text-center">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-gray-800">
             Supporting Professionals in Future-Ready Strategies.
           </h2>
         </div>
@@ -250,5 +267,5 @@ export function PrimaryFeaturesSimple() {
         <FeaturesDesktop />
       </Container>
     </section>
-  )
+  );
 }

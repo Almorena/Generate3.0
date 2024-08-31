@@ -48,7 +48,7 @@ export function SecondaryFeatures() {
     >
       <Container>
         <div className="mx-auto max-w-2xl sm:text-center">
-          <h2 className="text-3xl font-medium tracking-tight text-gray-900">
+          <h2 className="text-3xl font-semibold tracking-tight text-gray-800">
             Smart Assistants, Super Results.
           </h2>
           <p className="mt-2 text-lg text-gray-600">
