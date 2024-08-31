@@ -254,7 +254,7 @@ export function PrimaryFeaturesSimple() {
       <BackgroundAnimation />
       <Container className="relative z-10">
         <div className="mx-auto max-w-3xl lg:max-w-4xl text-center">
-          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-gray-800">
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-800">
             Supporting Professionals in Future-Ready Strategies.
           </h2>
         </div>

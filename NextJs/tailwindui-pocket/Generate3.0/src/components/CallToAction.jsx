@@ -13,7 +13,7 @@ export function CallToAction() {
       
       <Container className="relative">
         <div className="mx-auto sm:text-center relative z-10">
-          <h2 className="text-3xl font-semibold tracking-tight text-grey-800 sm:text-4xl max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold tracking-tight text-grey-800 sm:text-4xl max-w-4xl mx-auto">
             The AI business strategist to instantly see future markets and understand consumer behavior
           </h2>
           <p className="mt-4 text-lg text-gray-600 max-w-4xl mx-auto">
