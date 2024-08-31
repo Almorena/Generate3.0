@@ -2,3 +2,12 @@
 const nextConfig = {}
 
 module.exports = nextConfig
+
+// next.config.js
+
+module.exports = {
+  images: {
+    domains: ['generate.nextatlas.com'], // Aggiungi il dominio qui
+  },
+}
+

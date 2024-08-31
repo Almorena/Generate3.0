@@ -5,9 +5,6 @@ import clsx from 'clsx'
 export function AppScreen({ children, className, ...props }) {
   return (
     <div className={clsx('flex flex-col', className)} {...props}>
-      <div className="flex justify-between px-4 pt-4">
-       
-      </div>
       {children}
     </div>
   )

@@ -227,6 +227,29 @@ function ReviewGrid() {
 }
 
 export function Reviews() {
+  const placeholders = [
+    "What’s trending in beauty?",
+    "Current trends in electric vehicle features?",
+    "Solar energy adoption?",
+    "What are personas for podcast listeners?",
+    "Explore sustainable packaging innovations",
+  ];
+
+  const [currentPlaceholder, setCurrentPlaceholder] = useState(placeholders[0]);
+  const [placeholderIndex, setPlaceholderIndex] = useState(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setPlaceholderIndex((prevIndex) => (prevIndex + 1) % placeholders.length);
+    }, 3000); // Change placeholder every 3 seconds
+
+    return () => clearInterval(intervalId);
+  }, [placeholders.length]);
+
+  useEffect(() => {
+    setCurrentPlaceholder(placeholders[placeholderIndex]);
+  }, [placeholderIndex, placeholders]);
+
   return (
     <section
       id="reviews"
@@ -240,9 +263,31 @@ export function Reviews() {
         >
           Try Generate Now!
         </h2>
-          <input type="text" placeholder= 'Ask something to Generate' className="shadow-md rounded-lg w-1/2 mx-auto block mt-4 border border-gray-300" />
+        <div className="relative w-1/2 mx-auto mt-4">
+          <input
+            type="text"
+            placeholder={currentPlaceholder}
+            className="w-full pl-4 pr-10 py-2 rounded-full border border-gray-300 bg-gray-100 text-gray-600 shadow-inner focus:outline-none transition-all duration-300"
+          />
+          <button className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-200 rounded-full p-2">
+            <svg
+              className="w-4 h-4 text-gray-500"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M9 5l7 7-7 7"
+              ></path>
+            </svg>
+          </button>
+        </div>
         <ReviewGrid />
       </Container>
     </section>
-  )
+  );
 }

@@ -9,7 +9,6 @@ import { useDebouncedCallback } from 'use-debounce'
 import { AppScreen } from '@/components/AppScreen'
 import { CircleBackground } from '@/components/CircleBackground'
 import { Container } from '@/components/Container'
-import { PhoneFrame } from '@/components/PhoneFrame'
 import {
   DiageoLogo,
   LaravelLogo,
@@ -26,9 +25,9 @@ const MotionAppScreenBody = motion(AppScreen.Body)
 
 const features = [
   {
-    name: 'Invite friends for better returns',
+    name: 'Freelancer',
     description:
-      'For every friend you invite to Pocket, you get insider notifications 5 seconds sooner. And it’s 10 seconds if you invite an insider.',
+      'By analysing vast datasets of consumer conversations alongside Nextatlas`s best-in-class consumer sentiment tools, Generate Suite gives Insights Strategists a nuanced understanding of consumer motivations, informing the development of targeted and impactful marketing strategies.',
     icon: DeviceUserIcon,
     screen: InviteScreen,
   },
@@ -429,29 +428,27 @@ function FeaturesDesktop() {
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
           <CircleBackground color="#13B5C8" className="animate-spin-slower" />
         </div>
-        <PhoneFrame className="z-10 mx-auto w-full max-w-[366px]">
-          <TabPanels as={Fragment}>
-            <AnimatePresence
-              initial={false}
-              custom={{ isForwards, changeCount }}
-            >
-              {features.map((feature, featureIndex) =>
-                selectedIndex === featureIndex ? (
-                  <TabPanel
-                    static
-                    key={feature.name + changeCount}
-                    className="col-start-1 row-start-1 flex focus:outline-offset-[32px] ui-not-focus-visible:outline-none"
-                  >
-                    <feature.screen
-                      animated
-                      custom={{ isForwards, changeCount }}
-                    />
-                  </TabPanel>
-                ) : null,
-              )}
-            </AnimatePresence>
-          </TabPanels>
-        </PhoneFrame>
+        <TabPanels as={Fragment}>
+          <AnimatePresence
+            initial={false}
+            custom={{ isForwards, changeCount }}
+          >
+            {features.map((feature, featureIndex) =>
+              selectedIndex === featureIndex ? (
+                <TabPanel
+                  static
+                  key={feature.name + changeCount}
+                  className="col-start-1 row-start-1 flex focus:outline-offset-[32px] ui-not-focus-visible:outline-none"
+                >
+                  <feature.screen
+                    animated
+                    custom={{ isForwards, changeCount }}
+                  />
+                </TabPanel>
+              ) : null,
+            )}
+          </AnimatePresence>
+        </TabPanels>
       </div>
     </TabGroup>
   )
@@ -508,9 +505,9 @@ function FeaturesMobile() {
                   className={featureIndex % 2 === 1 ? 'rotate-180' : undefined}
                 />
               </div>
-              <PhoneFrame className="relative mx-auto w-full max-w-[366px]">
+              <div className="relative mx-auto w-full">
                 <feature.screen />
-              </PhoneFrame>
+              </div>
               <div className="absolute inset-x-0 bottom-0 bg-gray-800/95 p-6 backdrop-blur sm:p-10">
                 <feature.icon className="h-8 w-8" />
                 <h3 className="mt-6 text-sm font-semibold text-white sm:text-lg">
