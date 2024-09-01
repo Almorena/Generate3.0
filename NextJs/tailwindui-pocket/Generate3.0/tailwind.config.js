@@ -32,6 +32,7 @@ module.exports = {
         'spin-reverse': 'spin-reverse 1s linear infinite',
         'spin-reverse-slow': 'spin-reverse 4s linear infinite',
         'spin-reverse-slower': 'spin-reverse 6s linear infinite',
+        blink: 'blink 1s step-end infinite', // Aggiunta la nuova animazione 'blink'
       },
       borderRadius: {
         '4xl': '2rem',
@@ -85,6 +86,10 @@ module.exports = {
           to: {
             transform: 'rotate(-360deg)',
           },
+        },
+        blink: {
+          '0%, 100%': { opacity: 1 },  // Aggiunta la nuova keyframe 'blink'
+          '50%': { opacity: 0 },
         },
       },
       maxWidth: {

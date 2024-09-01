@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 import { AuthLayout } from '@/components/AuthLayout'
 import { Button } from '@/components/Button'
-import { SelectField, TextField } from '@/components/Fields'
+import { TextField } from '@/components/Fields'
 
 export const metadata = {
   title: 'Sign Up',
@@ -54,16 +54,6 @@ export default function Register() {
             autoComplete="new-password"
             required
           />
-          <SelectField
-            className="col-span-full"
-            label="How did you hear about us?"
-            name="referral_source"
-          >
-            <option>AltaVista search</option>
-            <option>Super Bowl commercial</option>
-            <option>Our route 34 city bus ad</option>
-            <option>The “Never Use This” podcast</option>
-          </SelectField>
         </div>
         <Button type="submit" color="violet" className="mt-8 w-full">
           Get started today

@@ -102,67 +102,67 @@ function FeaturesDesktop() {
   let [selectedIndex, setSelectedIndex] = useState(0)
 
   return (
-    <TabGroup
-      className="flex flex-col items-center gap-8 lg:gap-8 xl:gap-24"
-      selectedIndex={selectedIndex}
-      onChange={setSelectedIndex}
-    >
-      <TabList className="flex justify-center space-x-6">
-        {features.map((feature, featureIndex) => (
-          <div
-            key={feature.name}
-            className={clsx(
-              "relative rounded-2xl transition-colors w-40",  // Larghezza fissa per i tab
-              featureIndex === selectedIndex
-                ? 'bg-gray-800 text-white'
-                : 'bg-white text-gray-800 hover:bg-gray-200'
-            )}
+<TabGroup
+  className="flex flex-col items-center gap-8 lg:gap-8 xl:gap-8"
+  selectedIndex={selectedIndex}
+  onChange={setSelectedIndex}
+>
+  <TabList className="flex justify-center space-x-6">
+    {features.map((feature, featureIndex) => (
+      <div
+        key={feature.name}
+        className={clsx(
+          "relative rounded-2xl transition-colors w-40",  // Larghezza fissa per i tab
+          featureIndex === selectedIndex
+            ? 'bg-gray-800 text-white'
+            : 'bg-white text-gray-800 hover:bg-gray-200'
+        )}
+      >
+        {featureIndex === selectedIndex && (
+          <motion.div
+            layoutId="activeBackground"
+            className="absolute inset-0"
+            style={{ borderRadius: 16 }}
+          />
+        )}
+        <div className="relative z-10 p-4 flex items-center justify-center h-full">
+          <Tab
+            className={({ selected }) =>
+              clsx(
+                'text-center ui-not-focus-visible:outline-none',
+                selected
+                  ? 'text-white'
+                  : 'text-gray-800'
+              )
+            }
           >
-            {featureIndex === selectedIndex && (
-              <motion.div
-                layoutId="activeBackground"
-                className="absolute inset-0"
-                style={{ borderRadius: 16 }}
-              />
-            )}
-            <div className="relative z-10 p-4 flex items-center justify-center h-full">
-              <Tab
-                className={({ selected }) =>
-                  clsx(
-                    'text-center ui-not-focus-visible:outline-none',
-                    selected
-                      ? 'text-white'
-                      : 'text-gray-800'
-                  )
-                }
-              >
-                <h3 className="text-lg font-semibold text-center">
-                  {feature.name}
-                </h3>
-              </Tab>
-            </div>
-
-          </div>
-        ))}
-      </TabList>
-      <div className="w-full mt-4">
-        <TabPanels as={Fragment}>
-          <AnimatePresence initial={false} mode="wait">
-            {features.map((feature, featureIndex) =>
-              selectedIndex === featureIndex ? (
-                <TabPanel
-                  static
-                  key={feature.name}
-                  className="flex justify-center"
-                >
-                  <FeatureScreen feature={feature} />
-                </TabPanel>
-              ) : null,
-            )}
-          </AnimatePresence>
-        </TabPanels>
+            <h3 className="text-lg font-semibold text-center">
+              {feature.name}
+            </h3>
+          </Tab>
+        </div>
       </div>
-    </TabGroup>
+    ))}
+  </TabList>
+  <div className="w-full mt-2">  {/* Cambiato da mt-4 a mt-2 per avvicinare i tab alle card */}
+    <TabPanels as={Fragment}>
+      <AnimatePresence initial={false} mode="wait">
+        {features.map((feature, featureIndex) =>
+          selectedIndex === featureIndex ? (
+            <TabPanel
+              static
+              key={feature.name}
+              className="flex justify-center"
+            >
+              <FeatureScreen feature={feature} />
+            </TabPanel>
+          ) : null,
+        )}
+      </AnimatePresence>
+    </TabPanels>
+  </div>
+</TabGroup>
+
   )
 }
 
