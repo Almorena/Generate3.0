@@ -251,7 +251,9 @@ export function PrimaryFeaturesSimple() {
       aria-label="Supporting Professionals in Future-Ready Strategies."
       className="relative bg-gray-100 py-4 sm:py-20 overflow-hidden"
     >
-      <BackgroundAnimation />
+      <div className="absolute inset-0">
+        <BackgroundAnimation />
+      </div>
       <Container className="relative z-10">
         <div className="mx-auto max-w-3xl lg:max-w-4xl text-center">
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-800">

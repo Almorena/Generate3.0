@@ -1,41 +1,44 @@
 import { Container } from '@/components/Container'
+import Image from 'next/image';
+import Icona from '../images/ai-icon.png';
+
 
 const features = [
   {
     name: 'Generate Chat',
     description:
       'Speak with our strategist to get advanced insights into market dynamics and consumer trends to shape your strategic decisions.',
-    gradient: 'from-blue-400 to-purple-600',
+    gradient: 'from-blue-200 to-purple-600',
   },
   {
     name: 'Persona Generator Agent',
     description:
       'Quickly develop varied personas based on our consumer data and test them in every scenario you can think of, an out of the box living segmentation',
-    gradient: 'from-green-400 to-blue-600',
+    gradient: 'from-green-200 to-blue-600',
   },
   {
     name: 'Ingredient Discovery Agent',
     description:
       'Discover the next big thing in food and innovate your product development or market strategy.',
-    gradient: 'from-teal-400 to-cyan-600', // Updated to cool tones
+    gradient: 'from-teal-200 to-red-600',
   },
   {
     name: 'Innovation Tracker',
     description:
       'Track tech advancements, startups and industry innovations and receive recommendations for a competitive edge.',
-    gradient: 'from-purple-400 to-pink-600',
+    gradient: 'from-purple-200 to-pink-600',
   },
   {
     name: 'Sentiment Pulse Agent',
     description:
       'Get real-time insights on the undercurrents shaping public opinion and emotional trends and see how your audience really feels.',
-    gradient: 'from-yellow-400 to-red-600',
+    gradient: 'from-yellow-200 to-red-600',
   },
   {
     name: 'Subculture Agent',
     description:
       'Get real-time insights on the undercurrents shaping public opinion and emotional trends and see how your audience really feels.',
-    gradient: 'from-indigo-400 to-blue-600',
+    gradient: 'from-purple-300 to-green-600',
   },
 ]
 
@@ -61,21 +64,23 @@ export function SecondaryFeatures() {
         >
           {features.map((feature) => (
             <li
-              key={feature.name}
-              className={`rounded-2xl border border-gray-200 p-8 ${
-                feature.name === 'Generate Chat' ? 'bg-gray-100' : ''
-              }`}
+            key={feature.name}
+            className={`rounded-2xl border border-gray-200 p-8 ${
+              feature.name === 'Generate Chat' ? 'bg-gray-100' : ''
+            }`}
+          >
+            <div className="flex items-center">
+            <div
+              className={`relative h-10 w-10 flex items-center justify-center rounded-full bg-gradient-to-br ${feature.gradient}`}
             >
-              <div className="flex items-center">
-                <div
-                  className={`h-10 w-10 rounded-full bg-gradient-to-br ${feature.gradient}`}
-                ></div>
-                <h3 className="ml-4 text-lg font-semibold text-gray-900">
-                  {feature.name}
-                </h3>
-              </div>
-              <p className="mt-4 text-gray-700">{feature.description}</p>
-            </li>
+              <Image src={Icona} alt={`${feature.name} icon`} width={24} height={24} />
+            </div>
+              <h3 className="ml-4 text-lg font-bold text-gray-800">
+                {feature.name}
+              </h3>
+            </div>
+            <p className="mt-4 text-gray-700">{feature.description}</p>
+          </li>          
           ))}
         </ul>
       </Container>

@@ -7,7 +7,7 @@ export function CallToAction() {
       id="get-free-shares-today"
       className="relative overflow-hidden bg-gray-100 py-20 sm:py-28"
     >
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 flex items-center justify-center">
         <BackgroundAnimation />
       </div>
       
