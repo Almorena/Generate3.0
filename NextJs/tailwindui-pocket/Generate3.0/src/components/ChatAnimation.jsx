@@ -30,7 +30,7 @@ const ChatAnimation = () => {
 
   const steps = [step03, step04, step05, step06]; // Array delle immagini per la sequenza
 
-  const typingSpeeds = [30, 10]; // Velocità di digitazione per ciascun testo
+  const typingSpeeds = [100, 10]; // Velocità di digitazione per ciascun testo
   const fontSizes = ['text-2xl', 'text-xl']; // Dimensione del font per ciascun testo
 
   // Definizione delle coordinate per ogni immagine (modifica queste per controllare la posizione)
@@ -42,7 +42,7 @@ const ChatAnimation = () => {
   ];
 
   const textPositions = [
-    { top: '336px', left: '66px' },  // Coordinate per il primo testo
+    { top: '338px', left: '66px' },  // Coordinate per il primo testo
     { top: '120px', left: '90px', paddingRight: '80px' }  // Coordinate e padding per il secondo testo
   ];
 
