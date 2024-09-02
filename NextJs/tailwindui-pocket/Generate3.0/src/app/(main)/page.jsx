@@ -1,6 +1,5 @@
 import { CallToAction } from '@/components/CallToAction'
 import { CallToAction2 } from '@/components/CallToAction2'
-import { ChatSection } from '@/components/ChatSection'
 import { Faqs } from '@/components/Faqs'
 import { Hero } from '@/components/Hero'
 import { Pricing } from '@/components/Pricing'
@@ -14,7 +13,6 @@ export default function Home() {
     <>
       <Hero />
       <CallToAction />
-      <ChatSection />
       <SecondaryFeatures />
       <PrimaryFeaturesSimple />
       <Reviews />
